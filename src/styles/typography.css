@@ -1,0 +1,53 @@
+body {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 1.5rem + 4.8vw, 4.75rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 1.45rem + 2.4vw, 3.15rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 1.12rem + 0.6vw, 1.55rem);
+}
+
+h4 {
+  font-size: 1.0625rem;
+}
+
+/* Utility: etiqueta superior de sección */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 1.75rem;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.7;
+}

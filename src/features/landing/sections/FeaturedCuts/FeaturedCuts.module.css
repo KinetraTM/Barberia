@@ -1,0 +1,138 @@
+.head {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(
+      120% 90% at 25% 5%,
+      var(--tone, #2a241c),
+      #0f0d0b 62%
+    );
+  transition: border-color var(--dur-base) var(--ease-out);
+}
+
+@media (min-width: 640px) {
+  .media {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+.media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.card:hover .media {
+  border-color: rgba(201, 168, 106, 0.4);
+}
+
+.watermark {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.15rem;
+  z-index: 1;
+  color: rgba(243, 238, 229, 0.1);
+  font-family: var(--font-display);
+  font-size: 5.5rem;
+  line-height: 1;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.card:hover .watermark {
+  transform: translateY(-6px);
+}
+
+.badge {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 1;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding-top: 1.05rem;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1.32rem;
+  line-height: 1.2;
+}
+
+.description {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.15rem;
+}
+
+.tag {
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-dim);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.price {
+  color: var(--color-accent-soft);
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-text-muted);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.cta:hover {
+  color: var(--color-accent-soft);
+}

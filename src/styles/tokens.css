@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Design tokens — Franco Barbería
+   Breakpoints de referencia (se escriben literales dentro de cada módulo,
+   porque CSS Modules no permite custom properties en @media):
+     base  → 320px–639px   (móvil)
+     sm    → 640px         (móvil grande / 2 columnas)
+     md    → 768px         (tablet)
+     lg    → 1024px        (laptop / navegación completa)
+     xl    → 1280px        (desktop ancho)
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* Color */
+  --color-bg: #0b0a09;
+  --color-bg-soft: #100e0c;
+  --color-surface: #17140f;
+  --color-surface-raised: #201c16;
+  --color-line: rgba(233, 222, 203, 0.12);
+  --color-line-strong: rgba(233, 222, 203, 0.24);
+  --color-text: #f3eee5;
+  --color-text-muted: #a79e91;
+  --color-text-dim: #948b7d;
+  --color-accent: #c9a86a;
+  --color-accent-soft: #e0c794;
+  --color-accent-ink: #16120b;
+  --color-focus: #e6c98f;
+  --color-online: #7fbf87;
+
+  /* Tipografía */
+  --font-display: 'Iowan Old Style', 'Palatino Linotype', Palatino,
+    'Book Antiqua', Georgia, serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+
+  /* Espaciado (escala fija de 4px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-narrow: 820px;
+  --gutter: clamp(1.15rem, 4vw, 2.5rem);
+  --header-height: 4.5rem;
+  --section-padding: clamp(3.75rem, 9vw, 7rem);
+
+  /* Radios */
+  --radius-xs: 2px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Sombras */
+  --shadow-card: 0 18px 40px -28px rgba(0, 0, 0, 0.9);
+  --shadow-float: 0 30px 70px -30px rgba(0, 0, 0, 0.85);
+
+  /* Movimiento */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-base: 260ms;
+  --dur-slow: 480ms;
+
+  /* Capas */
+  --z-header: 60;
+  --z-overlay: 70;
+  --z-drawer: 80;
+}

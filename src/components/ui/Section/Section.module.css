@@ -1,0 +1,30 @@
+.root {
+  position: relative;
+  padding-block: var(--section-padding);
+}
+
+.compact {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.flush {
+  padding-block: 0;
+}
+
+.tinted {
+  background-color: var(--color-bg-soft);
+}
+
+.hairline::before {
+  content: '';
+  position: absolute;
+  inset-inline: var(--gutter);
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-line-strong),
+    transparent
+  );
+}

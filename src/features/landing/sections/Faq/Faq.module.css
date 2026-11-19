@@ -1,0 +1,18 @@
+.accordion {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.prompt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 0.75rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.promptText {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
