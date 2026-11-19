@@ -24,10 +24,7 @@ export default function Services() {
 
             <div className={styles.actions}>
               <Button
-                href={buildWhatsAppLink(
-                  site.contact.whatsapp,
-                  site.contact.whatsappMessage,
-                )}
+                href={buildWhatsAppLink(site.contact.whatsappMessage)}
                 target="_blank"
                 rel="noreferrer noopener"
                 variant="secondary"

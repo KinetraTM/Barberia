@@ -1,4 +1,3 @@
-import { site } from '@/content/site.config'
 import { featuredCuts } from '@/content/haircuts'
 import { buildWhatsAppLink } from '@/utils/links'
 import { formatPrice } from '@/utils/format'
@@ -12,7 +11,6 @@ import styles from './FeaturedCuts.module.css'
 
 function CutCard({ cut, index }) {
   const bookingHref = buildWhatsAppLink(
-    site.contact.whatsapp,
     `¡Hola! Quiero reservar un turno para "${cut.name}".`,
   )
 

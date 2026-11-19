@@ -90,10 +90,7 @@ export default function SiteFooter({ site, links, services }) {
               <li>
                 <a
                   className={styles.link}
-                  href={buildWhatsAppLink(
-                    contact.whatsapp,
-                    contact.whatsappMessage,
-                  )}
+                  href={buildWhatsAppLink(contact.whatsappMessage)}
                   target="_blank"
                   rel="noreferrer noopener"
                 >

@@ -7,10 +7,9 @@ import Container from '@/components/ui/Container/Container'
 import styles from './Hero.module.css'
 
 export default function Hero() {
-  const whatsappHref = buildWhatsAppLink(
-    site.contact.whatsapp,
-    site.contact.whatsappMessage,
-  )
+  // Nueva firma: buildWhatsAppLink(message). Sin argumentos usa DEFAULT_MESSAGE
+  // y el número sale de VITE_WHATSAPP_PHONE.
+  const whatsappHref = buildWhatsAppLink()
 
   return (
     <section

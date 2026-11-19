@@ -22,10 +22,7 @@ export default function ContactLocation() {
       icon: 'whatsapp',
       label: contact.whatsappLabel,
       value: site.contact.phone,
-      href: buildWhatsAppLink(
-        site.contact.whatsapp,
-        site.contact.whatsappMessage,
-      ),
+      href: buildWhatsAppLink(site.contact.whatsappMessage),
       external: true,
     },
     {
