@@ -1,21 +1,21 @@
-import PageShell from '@/components/layout/PageShell/PageShell'
-import SiteFooter from '@/components/layout/SiteFooter/SiteFooter'
-import SiteHeader from '@/components/layout/SiteHeader/SiteHeader'
-import { navCta, navLinks } from '@/content/navigation'
-import { services } from '@/content/services'
-import { site } from '@/content/site.config'
-import LandingPage from '@/features/landing/LandingPage'
+import PageShell from "@/components/layout/PageShell/PageShell";
+import SiteFooter from "@/components/layout/SiteFooter/SiteFooter";
+import SiteHeader from "@/components/layout/SiteHeader/SiteHeader";
+import { navCta, navLinks } from "@/content/navigation";
+import { services } from "@/content/services";
+import { site } from "@/content/site.config";
+import LandingPage from "@/features/landing/LandingPage";
 
-const [brandName, ...brandRest] = site.name.split(' ')
+const [brandName, ...brandRest] = site.name.split(" ");
 
 const brand = {
   name: brandName,
-  sub: brandRest.join(' '),
+  sub: brandRest.join(" "),
   monogram: site.monogram,
   tagline: site.tagline,
-}
+};
 
-const footerServices = services.items.slice(0, 4)
+const footerServices = services.items.slice(0, 4);
 
 export default function App() {
   return (
@@ -28,5 +28,5 @@ export default function App() {
 
       <SiteFooter site={site} links={navLinks} services={footerServices} />
     </PageShell>
-  )
+  );
 }
