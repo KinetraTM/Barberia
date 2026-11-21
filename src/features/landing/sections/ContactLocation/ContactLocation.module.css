@@ -138,69 +138,55 @@
   line-height: 1.6;
 }
 
-/* Panel de mapa: placeholder liviano, sin iframe ni cookies */
+/* Panel de mapa: mini mapa embebido con etiqueta de dirección superpuesta */
 .map {
   position: relative;
   display: grid;
-  place-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   min-height: 24rem;
+  padding: 0.6rem;
   overflow: hidden;
   border: 1px solid var(--color-line);
   border-radius: var(--radius-lg);
   background-color: #0d0c0a;
 }
 
-.mapGrid {
+.mapOverlay {
   position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(201, 168, 106, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201, 168, 106, 0.07) 1px, transparent 1px);
-  background-size: 46px 46px;
-}
-
-.mapGrid::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    70% 60% at 50% 45%,
-    rgba(11, 10, 9, 0.1),
-    rgba(11, 10, 9, 0.85) 80%
-  );
-}
-
-.mapContent {
-  position: relative;
+  top: 1.25rem;
+  left: 1.25rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.55rem;
-  padding: 2.5rem 1.75rem;
-  text-align: center;
+  gap: 0.7rem;
+  padding: 0.55rem 0.85rem 0.55rem 0.55rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background-color: rgba(11, 10, 9, 0.82);
+  backdrop-filter: blur(8px);
+  pointer-events: none;
 }
 
 .pin {
   display: grid;
+  flex: none;
   place-items: center;
-  width: 3.25rem;
-  height: 3.25rem;
-  margin-bottom: 0.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
   border: 1px solid rgba(201, 168, 106, 0.45);
   border-radius: 50%;
   background-color: rgba(201, 168, 106, 0.12);
   color: var(--color-accent-soft);
-  box-shadow: 0 0 0 10px rgba(201, 168, 106, 0.05);
 }
 
 .mapCaption {
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.2;
 }
 
 .mapAddress {
-  margin-bottom: 0.85rem;
   color: var(--color-text-muted);
-  font-size: 0.86rem;
+  font-size: 0.78rem;
 }

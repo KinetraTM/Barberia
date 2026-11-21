@@ -1,22 +1,18 @@
-import { site } from '@/content/site.config'
-import { hero } from '@/content/hero'
-import { buildWhatsAppLink } from '@/utils/links'
-import { cn } from '@/utils/cn'
-import Button from '@/components/ui/Button/Button'
-import Container from '@/components/ui/Container/Container'
-import styles from './Hero.module.css'
+import { site } from "@/content/site.config";
+import { hero } from "@/content/hero";
+import { buildWhatsAppLink } from "@/utils/links";
+import { cn } from "@/utils/cn";
+import Button from "@/components/ui/Button/Button";
+import Container from "@/components/ui/Container/Container";
+import styles from "./Hero.module.css";
 
 export default function Hero() {
   // Nueva firma: buildWhatsAppLink(message). Sin argumentos usa DEFAULT_MESSAGE
   // y el número sale de VITE_WHATSAPP_PHONE.
-  const whatsappHref = buildWhatsAppLink()
+  const whatsappHref = buildWhatsAppLink();
 
   return (
-    <section
-      id="inicio"
-      className={styles.root}
-      aria-labelledby="hero-title"
-    >
+    <section id="inicio" className={styles.root} aria-labelledby="hero-title">
       <Container>
         <div className={styles.grid}>
           <div className={styles.content}>
@@ -99,5 +95,5 @@ export default function Hero() {
         </div>
       </Container>
     </section>
-  )
+  );
 }
