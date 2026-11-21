@@ -16,19 +16,25 @@ jobs:
       - name: Descargar código
         uses: actions/checkout@v4
 
+      - name: Configurar pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "pnpm"
 
       - name: Instalar dependencias
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Compilar proyecto con variables de entorno
-        run: npm run build
+        run: pnpm run build
         env:
           VITE_WHATSAPP_PHONE: ${{ vars.VITE_WHATSAPP_PHONE }}
+          VITE_BUSINESS_ADDRESS: ${{ vars.VITE_BUSINESS_ADDRESS }}
 
       - name: Subir artefacto a GitHub Pages
         uses: actions/upload-pages-artifact@v3
