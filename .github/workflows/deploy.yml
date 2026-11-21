@@ -25,10 +25,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "pnpm"
 
       - name: Instalar dependencias
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Compilar proyecto con variables de entorno
         run: pnpm run build
