@@ -1,0 +1,20 @@
+.root {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+  transform: rotate(-4deg);
+  white-space: nowrap;
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+.board {
+  color: var(--color-board-text);
+}

@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Skills y configuración de agentes (no versionar)
+*agent-skills*
+.agents/skills/
+.claude/
+.opencode/
+agent/
+skills-lock.json

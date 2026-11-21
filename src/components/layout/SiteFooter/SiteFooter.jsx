@@ -1,8 +1,6 @@
-import { buildMailtoLink, buildPhoneLink, buildWhatsAppLink } from '@/utils/links'
-import { formatSchedule } from '@/utils/format'
+import { location } from '@/content/location'
 import Container from '../../ui/Container/Container'
 import Icon from '../../ui/Icon/Icon'
-import Logo from '../../ui/Logo/Logo'
 import styles from './SiteFooter.module.css'
 
 export default function SiteFooter({ site, links, services }) {
@@ -14,14 +12,19 @@ export default function SiteFooter({ site, links, services }) {
       <Container>
         <div className={styles.top}>
           <div className={styles.brand}>
-            <Logo
-              name={site.name.split(' ')[0]}
-              sub={site.name.split(' ').slice(1).join(' ')}
-              monogram={site.monogram}
-            />
+            <a
+              href="#inicio"
+              className={styles.signoff}
+              aria-label={`${site.name}, inicio`}
+            >
+              <span className={styles.signoffName}>Franco</span>
+              <span className={styles.signoffSub}>Barbería</span>
+            </a>
+
             <p className={styles.description}>{site.description}</p>
+
             <p className={styles.established}>
-              Desde {site.established} · {site.contact.address.area}
+              Desde {site.established} en {contact.address.area}.
             </p>
 
             <ul className={styles.socials}>
@@ -43,7 +46,7 @@ export default function SiteFooter({ site, links, services }) {
 
           <nav className={styles.column} aria-labelledby="footer-nav">
             <h2 id="footer-nav" className={styles.title}>
-              Navegación
+              Secciones
             </h2>
             <ul className={styles.list}>
               {links.map((link) => (
@@ -70,7 +73,7 @@ export default function SiteFooter({ site, links, services }) {
           </div>
 
           <div className={styles.column}>
-            <h2 className={styles.title}>Contacto</h2>
+            <h2 className={styles.title}>Ubicación</h2>
             <ul className={styles.list}>
               <li>
                 <a
@@ -79,57 +82,41 @@ export default function SiteFooter({ site, links, services }) {
                   target="_blank"
                   rel="noreferrer noopener"
                 >
-                  {contact.address.street}, {contact.address.area}
+                  {contact.address.street}
                 </a>
               </li>
-              <li>
-                <a className={styles.link} href={buildPhoneLink(contact.phoneHref)}>
-                  {contact.phone}
-                </a>
+              <li className={styles.plain}>
+                {contact.address.area}, {contact.address.city}
               </li>
               <li>
                 <a
                   className={styles.link}
-                  href={buildWhatsAppLink(
-                    contact.whatsapp,
-                    contact.whatsappMessage,
-                  )}
+                  href={contact.mapsUrl}
                   target="_blank"
                   rel="noreferrer noopener"
                 >
-                  WhatsApp
-                </a>
-              </li>
-              <li>
-                <a
-                  className={styles.link}
-                  href={buildMailtoLink(contact.email)}
-                >
-                  {contact.email}
+                  {location.mapCta}
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className={styles.hours}>
-          <p className={styles.hoursTitle}>Horarios</p>
-          <ul className={styles.hoursList}>
-            {site.hours.map((entry) => (
-              <li key={entry.day} className={styles.hoursItem}>
-                <span>{entry.day}</span>
-                <span className={entry.closed ? styles.closed : undefined}>
-                  {formatSchedule(entry)}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         <div className={styles.bottom}>
           <p>
             © {year} {site.name}. Todos los derechos reservados.
           </p>
+
+          <ul className={styles.legal}>
+            {site.legalLinks.map((link) => (
+              <li key={link.id}>
+                <a href={link.href} className={styles.legalLink}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
           <a href="#inicio" className={styles.backToTop}>
             Volver arriba
             <Icon name="arrowRight" size={14} className={styles.upIcon} />

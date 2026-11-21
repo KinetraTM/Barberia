@@ -4,13 +4,9 @@
  * `href` es un ancla hoy; mañana puede ser una ruta sin tocar los componentes.
  */
 export const navLinks = [
-  { id: 'cortes', label: 'Cortes', href: '#cortes' },
+  { id: 'cortes', label: 'Trabajos', href: '#cortes' },
   { id: 'servicios', label: 'Servicios', href: '#servicios' },
   { id: 'faq', label: 'Preguntas', href: '#faq' },
-  { id: 'contacto', label: 'Contacto', href: '#contacto' },
+  { id: 'horarios', label: 'Horarios', href: '#horarios' },
+  { id: 'ubicacion', label: 'Ubicación', href: '#ubicacion' },
 ]
-
-export const navCta = {
-  label: 'Reservar turno',
-  href: '#contacto',
-}

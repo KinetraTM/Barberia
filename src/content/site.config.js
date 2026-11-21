@@ -6,11 +6,18 @@
 export const site = {
   name: 'Franco Barbería',
   shortName: 'Franco',
-  monogram: 'F',
   tagline: 'Barbería clásica en Palermo',
   description:
     'Cortes, barba y afeitado a navaja con la calma de un oficio que se aprende con los años.',
   established: 2015,
+
+  /* Editá estos datos cuando tengas la foto y el apellido reales */
+  barber: {
+    name: 'Franco',
+    surname: 'Martínez',
+    role: 'Barbero y fundador',
+    photo: '/images/barbero.jpg',
+  },
 
   contact: {
     phone: '+54 11 5555 1234',
@@ -31,10 +38,23 @@ export const site = {
   },
 
   hours: [
-    { day: 'Lunes', open: null, close: null, closed: true },
-    { day: 'Martes a viernes', open: '10:00', close: '20:00' },
-    { day: 'Sábado', open: '09:00', close: '19:00' },
-    { day: 'Domingo', open: null, close: null, closed: true },
+    { day: 'Lunes', days: [1], open: null, close: null, closed: true },
+    { day: 'Martes a viernes', days: [2, 3, 4, 5], open: '10:00', close: '20:00' },
+    { day: 'Sábado', days: [6], open: '09:00', close: '19:00' },
+    { day: 'Domingo', days: [0], open: null, close: null, closed: true },
+  ],
+
+  legalLinks: [
+    {
+      id: 'terminos',
+      label: 'Términos y condiciones',
+      href: 'legal/terminos.html',
+    },
+    {
+      id: 'privacidad',
+      label: 'Política de privacidad',
+      href: 'legal/privacidad.html',
+    },
   ],
 
   socials: [

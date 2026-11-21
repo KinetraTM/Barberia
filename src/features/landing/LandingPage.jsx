@@ -2,6 +2,7 @@ import ContactLocation from './sections/ContactLocation/ContactLocation'
 import Faq from './sections/Faq/Faq'
 import FeaturedCuts from './sections/FeaturedCuts/FeaturedCuts'
 import Hero from './sections/Hero/Hero'
+import Hours from './sections/Hours/Hours'
 import Services from './sections/Services/Services'
 
 /**
@@ -15,6 +16,7 @@ export default function LandingPage() {
       <FeaturedCuts />
       <Services />
       <Faq />
+      <Hours />
       <ContactLocation />
     </>
   )

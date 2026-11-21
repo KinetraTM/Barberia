@@ -15,16 +15,11 @@
   background-color: var(--color-bg-soft);
 }
 
-.hairline::before {
-  content: '';
-  position: absolute;
-  inset-inline: var(--gutter);
-  top: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-line-strong),
-    transparent
-  );
+.board {
+  background-color: var(--color-board);
+  color: var(--color-board-text);
+}
+
+.hairline {
+  border-top: 1px solid var(--color-line);
 }

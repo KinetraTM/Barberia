@@ -2,14 +2,13 @@ import { useCallback, useState } from 'react'
 import { cn } from '@/utils/cn'
 import { useActiveSection } from '@/hooks/useActiveSection'
 import { useScrolled } from '@/hooks/useScrolled'
-import Button from '../../ui/Button/Button'
 import Container from '../../ui/Container/Container'
 import Icon from '../../ui/Icon/Icon'
 import Logo from '../../ui/Logo/Logo'
 import MobileMenu from '../MobileMenu/MobileMenu'
 import styles from './SiteHeader.module.css'
 
-export default function SiteHeader({ links, cta, brand }) {
+export default function SiteHeader({ links, brand }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const scrolled = useScrolled(12)
   const activeId = useActiveSection(links.map((link) => link.id))
@@ -22,7 +21,6 @@ export default function SiteHeader({ links, cta, brand }) {
         <Logo
           name={brand.name}
           sub={brand.sub}
-          monogram={brand.monogram}
           className={styles.logo}
         />
 
@@ -46,10 +44,6 @@ export default function SiteHeader({ links, cta, brand }) {
         </nav>
 
         <div className={styles.actions}>
-          <Button href={cta.href} size="sm" className={styles.cta}>
-            {cta.label}
-          </Button>
-
           <button
             type="button"
             className={styles.menuButton}
@@ -67,7 +61,6 @@ export default function SiteHeader({ links, cta, brand }) {
         open={menuOpen}
         onClose={closeMenu}
         links={links}
-        cta={cta}
         brand={brand}
       />
     </header>
