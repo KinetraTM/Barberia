@@ -36,7 +36,7 @@ jobs:
           VITE_BUSINESS_ADDRESS: ${{ vars.VITE_BUSINESS_ADDRESS }}
 
       - name: Subir artefacto a GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./dist
 
