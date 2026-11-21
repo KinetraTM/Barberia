@@ -7,7 +7,7 @@ export const site = {
   name: 'Franco Barbería',
   shortName: 'Franco',
   monogram: 'F',
-  tagline: 'Barbería clásica en Palermo',
+  tagline: 'Barbería clásica en Córdoba',
   description:
     'Cortes, barba y afeitado a navaja con la calma de un oficio que se aprende con los años.',
   established: 2015,
@@ -19,15 +19,15 @@ export const site = {
     whatsappMessage: '¡Hola! Quiero reservar un turno en Franco Barbería.',
     email: 'hola@francobarberia.com',
     address: {
-      street: 'Av. Thames 1234',
-      area: 'Palermo Soho',
-      city: 'CABA',
-      postalCode: 'C1414',
+      street: 'Av. Colón',
+      area: 'Centro',
+      city: 'Córdoba',
+      postalCode: 'X5000',
       country: 'Argentina',
     },
     mapsUrl:
-      'https://www.google.com/maps/search/?api=1&query=Av.+Thames+1234,+Palermo,+CABA',
-    notes: 'A dos cuadras de Plaza Serrano. Estacionamiento con descuento en Thames y Gorriti.',
+      'https://www.google.com/maps/search/?api=1&query=Av.+Colon,+Cordoba,+Argentina',
+    notes: 'Sobre Av. Colón, en el centro de Córdoba. Consultanos por opciones de estacionamiento en la zona.',
   },
 
   hours: [

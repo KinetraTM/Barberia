@@ -1,5 +1,5 @@
 export const hero = {
-  eyebrow: 'Palermo · desde 2015',
+  eyebrow: 'Córdoba · desde 2015',
   titleLines: ['Cortes con oficio.', 'Estilo sin apuro.'],
   accentLine: 1,
   lead: 'Una barbería de barrio con manos de otro tiempo. Corte, barba y afeitado clásico en un espacio pensado para que te tomes tu tiempo.',

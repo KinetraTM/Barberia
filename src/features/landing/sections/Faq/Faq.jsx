@@ -1,4 +1,3 @@
-import { site } from '@/content/site.config'
 import { faqs } from '@/content/faqs'
 import { buildWhatsAppLink } from '@/utils/links'
 import Accordion from '@/components/ui/Accordion/Accordion'
@@ -35,7 +34,6 @@ export default function Faq() {
           <p className={styles.promptText}>{faqs.contactPrompt.label}</p>
           <Button
             href={buildWhatsAppLink(
-              site.contact.whatsapp,
               '¡Hola! Tengo una consulta sobre los servicios.',
             )}
             target="_blank"

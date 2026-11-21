@@ -6,8 +6,8 @@ import {
   buildWhatsAppLink,
 } from '@/utils/links'
 import { formatSchedule } from '@/utils/format'
-import Button from '@/components/ui/Button/Button'
 import Container from '@/components/ui/Container/Container'
+import { LocationMap } from '@/components/ui/LocationMap/LocationMap'
 import Icon from '@/components/ui/Icon/Icon'
 import Section from '@/components/ui/Section/Section'
 import SectionHeading from '@/components/ui/SectionHeading/SectionHeading'
@@ -16,16 +16,23 @@ import styles from './ContactLocation.module.css'
 export default function ContactLocation() {
   const { address } = site.contact
 
+  const fullAddress = [
+    address.street,
+    address.area,
+    address.city,
+    address.postalCode,
+    address.country,
+  ]
+    .filter(Boolean)
+    .join(', ')
+
   const channels = [
     {
       id: 'whatsapp',
       icon: 'whatsapp',
       label: contact.whatsappLabel,
       value: site.contact.phone,
-      href: buildWhatsAppLink(
-        site.contact.whatsapp,
-        site.contact.whatsappMessage,
-      ),
+      href: buildWhatsAppLink(site.contact.whatsappMessage),
       external: true,
     },
     {
@@ -108,28 +115,18 @@ export default function ContactLocation() {
           </div>
 
           <div className={styles.map}>
-            <div className={styles.mapGrid} aria-hidden="true" />
+            <LocationMap address={fullAddress} />
 
-            <div className={styles.mapContent}>
+            <div className={styles.mapOverlay}>
               <span className={styles.pin} aria-hidden="true">
-                <Icon name="pin" size={22} />
+                <Icon name="pin" size={20} />
               </span>
-
-              <p className={styles.mapCaption}>{contact.mapCaption}</p>
-              <p className={styles.mapAddress}>
-                {address.area} · {address.city}
-              </p>
-
-              <Button
-                href={site.contact.mapsUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                variant="secondary"
-                size="sm"
-                iconRight="external"
-              >
-                {contact.mapCta}
-              </Button>
+              <div>
+                <p className={styles.mapCaption}>{contact.mapCaption}</p>
+                <p className={styles.mapAddress}>
+                  {address.area} · {address.city}
+                </p>
+              </div>
             </div>
           </div>
         </div>

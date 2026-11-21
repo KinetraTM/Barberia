@@ -47,7 +47,7 @@ export const faqs = {
       id: 'estacionamiento',
       question: '¿Hay dónde estacionar?',
       answer:
-        'Sobre Thames hay lugares medidos y un estacionamiento a media cuadra con descuento si mencionás que venís a la barbería.',
+        'Sobre Av. Colón hay lugares medidos y estacionamientos en las calles aledañas. Consultanos por convenios cercanos al local.',
     },
   ],
 }
