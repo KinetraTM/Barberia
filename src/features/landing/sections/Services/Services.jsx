@@ -9,7 +9,7 @@ import styles from "./Services.module.css";
 
 export default function Services() {
   return (
-    <Section id="servicios" tone="board">
+    <Section id="servicios" tone="tinted">
       <Container>
         <div className={styles.head}>
           <SectionHeading title={services.title} subtitle={services.subtitle} />
@@ -37,7 +37,7 @@ export default function Services() {
                     Incluye {service.includes.join(", ").toLowerCase()}
                   </span>
                 ) : null}
-                {service.featured ? <Stamp tone="board">Favorito</Stamp> : null}
+                {service.featured ? <Stamp>Favorito</Stamp> : null}
               </div>
 
               <a

@@ -113,26 +113,39 @@ El skip link usa `z-index: 999` puntual y justificado.
 
 ### 3.1 Familias
 
+| Rol | Familia | Pesos | Uso |
+|---|---|---|---|
+| Display | **Bevan** | 400 | Títulos `h1–h4`, nombre de marca, precios y numeración editorial |
+| Texto / UI | **Archivo Variable** | 400–700 | Párrafos, navegación, botones, etiquetas y metadatos |
+
 ```css
---font-display: 'Iowan Old Style', 'Palatino Linotype', Palatino,
-                'Book Antiqua', Georgia, serif;
---font-body: system-ui, -apple-system, 'Segoe UI', Roboto,
-             'Helvetica Neue', Arial, sans-serif;
+--font-display: 'Bevan', 'Roboto Slab', Georgia, serif;
+--font-body: 'Archivo Variable', 'Archivo', system-ui, -apple-system,
+             'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 ```
 
-Sin webfonts: cero requests, cero FOUT/FOIT, cero CLS por fuentes. La serif se elige por disponibilidad en macOS/iOS/Windows y cae elegantemente a Georgia.
+Carga: **self-hosting vía Fontsource**, como dependencia del proyecto (`@fontsource/bevan` y `@fontsource-variable/archivo`), importada al inicio de `src/index.css`:
+
+```css
+@import '@fontsource/bevan/400.css';
+@import '@fontsource-variable/archivo/index.css';
+```
+
+Sin `<link>` a Google Fonts ni `@font-face` manuales: cero requests a terceros, cero FOUT/FOIT y sin CLS por fuentes. Vite emite los `.woff`/`.woff2` (subsets latin, latin-ext y vietnamese) a `dist/assets`. Bevan solo existe en 400; Archivo se carga como fuente variable, así que 400–700 no suman archivos.
 
 ### 3.2 Escala fluida
 
 | Nivel | Tamaño | Line-height | Letter-spacing |
 |---|---|---|---|
-| body | `clamp(1rem, .96rem + .2vw, 1.0625rem)` | `1.6` | normal |
-| `h1` | `clamp(2.6rem, 1.5rem + 4.8vw, 4.75rem)` | `1.04` | `-.015em` |
-| `h2` | `clamp(2rem, 1.45rem + 2.4vw, 3.15rem)` | `1.04` | `-.015em` |
-| `h3` | `clamp(1.25rem, 1.12rem + .6vw, 1.55rem)` | `1.04` | `-.015em` |
-| `h4` | `1.0625rem` | `1.04` | `-.015em` |
+| body | `clamp(1rem, .97rem + .15vw, 1.0625rem)` | `1.6` | normal |
+| `h1` | `clamp(2.7rem, 1.35rem + 5.6vw, 5.4rem)` | `0.96` | `-.025em` |
+| `h2` | `clamp(2rem, 1.35rem + 2.8vw, 3.4rem)` | `1.02` | `-.015em` |
+| `h3` | `clamp(1.2rem, 1.06rem + .6vw, 1.55rem)` | `1.12` | `-.015em` |
+| `h4` | `1.0625rem` | `1.25` | `-.015em` |
 
-Pesos: títulos en `500` (nunca bold). El contraste de peso se reemplaza por tamaño y color.
+Pesos en uso: `400` en cuerpo y en todos los títulos (Bevan solo trae ese peso; el contraste se logra con tamaño, color e itálica), `500` en el subtítulo de la marca y textos de apoyo, `600` en botones, navegación, filas de horarios y metadatos, `700` solo en el sello y el CTA de servicios.
+
+> _§3.3 y §3.4 describen patrones de la versión anterior del sitio (mayúsculas con tracking amplio y `.eyebrow` global) y quedan pendientes de revisión._
 
 ### 3.3 Overrides por contexto
 

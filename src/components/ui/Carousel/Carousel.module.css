@@ -6,25 +6,21 @@
   container-type: inline-size;
   overflow: hidden;
   padding-block: 0.25rem 0.75rem;
+  cursor: grab;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.viewport:active {
+  cursor: grabbing;
 }
 
 .track {
   display: flex;
   width: max-content;
-  animation: marquee var(--marquee-duration, 34s) linear infinite;
+  backface-visibility: hidden;
   will-change: transform;
-}
-
-.viewport:hover .track,
-.viewport:focus-within .track {
-  animation-play-state: paused;
-}
-
-/* Cada copia mide exactamente la mitad de la pista: el reinicio no se ve */
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 .slide {
@@ -45,12 +41,54 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .track {
-    animation: none;
-  }
+/* Controles de navegación libre */
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
 
+.control {
+  display: inline-grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-xs);
+  background-color: transparent;
+  color: var(--color-accent);
+  cursor: pointer;
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.control:hover {
+  border-color: var(--color-accent);
+  background-color: rgba(201, 168, 106, 0.08);
+  color: var(--color-accent-soft);
+}
+
+.control:active {
+  transform: scale(0.96);
+}
+
+.control:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
   .viewport {
     overflow-x: auto;
+    cursor: default;
+  }
+
+  .control:active {
+    transform: none;
   }
 }

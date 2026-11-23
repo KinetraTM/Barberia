@@ -39,8 +39,8 @@
 }
 
 .primary:hover {
-  border-color: var(--color-accent-strong);
-  background-color: var(--color-accent-strong);
+  border-color: var(--color-accent-soft);
+  background-color: var(--color-accent-soft);
 }
 
 .secondary {
@@ -50,8 +50,9 @@
 }
 
 .secondary:hover {
-  border-color: var(--color-text);
-  background-color: rgba(28, 33, 31, 0.04);
+  border-color: var(--color-accent);
+  background-color: rgba(201, 168, 106, 0.08);
+  color: var(--color-accent-soft);
 }
 
 .ghost {
@@ -63,20 +64,8 @@
 }
 
 .ghost:hover {
-  color: var(--color-accent-strong);
+  color: var(--color-accent-soft);
   text-decoration-thickness: 2px;
-}
-
-/* Sobre la pizarra verde */
-.onBoard {
-  border-color: var(--color-board-text);
-  background-color: transparent;
-  color: var(--color-board-text);
-}
-
-.onBoard:hover {
-  background-color: var(--color-board-text);
-  color: var(--color-board);
 }
 
 /* Tamaños */

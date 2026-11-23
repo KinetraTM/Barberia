@@ -15,7 +15,7 @@ export default function Hours() {
   const schedule = getScheduleStatus(site.hours, new Date())
 
   return (
-    <Section id="horarios" tone="board">
+    <Section id="horarios" tone="tinted">
       <Container>
         <div className={styles.layout}>
           <div className={styles.intro}>
@@ -37,7 +37,7 @@ export default function Hours() {
               href={availabilityHref}
               target="_blank"
               rel="noreferrer noopener"
-              variant="onBoard"
+              variant="secondary"
             >
               {hoursContent.ctaLabel}
             </Button>

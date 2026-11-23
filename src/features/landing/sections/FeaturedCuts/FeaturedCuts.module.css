@@ -17,7 +17,7 @@
     var(--photo, none),
     repeating-linear-gradient(
       135deg,
-      rgba(231, 228, 219, 0.16) 0 1px,
+      rgba(201, 168, 106, 0.18) 0 1px,
       transparent 1px 10px
     );
   background-position: center;

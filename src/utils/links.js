@@ -3,8 +3,7 @@
  * arme URLs a mano y el día que cambie el canal de reserva se toque un solo lugar.
  */
 //==================WHATSAPP==================
-const DEFAULT_MESSAGE =
-  "Hola Kinetra, me gustaría consultar por un desarrollo web.";
+const DEFAULT_MESSAGE = '¡Hola! Quiero reservar un turno en Franco Barbería.'
 
 export function buildWhatsAppLink(message = DEFAULT_MESSAGE) {
   const phoneNumber = import.meta.env.VITE_WHATSAPP_PHONE;
@@ -15,7 +14,7 @@ export function buildWhatsAppLink(message = DEFAULT_MESSAGE) {
 //=============================================
 
 //==================DIRECCION=====================
-const DEFAULT_ADDRESS = import.meta.env.VITE_DEFAULT_ADDRESS;
+const DEFAULT_ADDRESS = import.meta.env.VITE_BUSINESS_ADDRESS;
 
 export function getGoogleMapsEmbedUrl(address = DEFAULT_ADDRESS) {
   const encodedAddress = encodeURIComponent(address);

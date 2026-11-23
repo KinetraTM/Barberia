@@ -1,12 +1,5 @@
 import { site } from '@/content/site.config'
 import { location } from '@/content/location'
-import { contact } from '@/content/contact'
-import {
-  buildMailtoLink,
-  buildPhoneLink,
-  buildWhatsAppLink,
-} from '@/utils/links'
-import { formatSchedule } from '@/utils/format'
 import Container from '@/components/ui/Container/Container'
 import { LocationMap } from '@/components/ui/LocationMap/LocationMap'
 import Icon from '@/components/ui/Icon/Icon'
@@ -26,31 +19,6 @@ export default function ContactLocation() {
   ]
     .filter(Boolean)
     .join(', ')
-
-  const channels = [
-    {
-      id: 'whatsapp',
-      icon: 'whatsapp',
-      label: contact.whatsappLabel,
-      value: site.contact.phone,
-      href: buildWhatsAppLink(site.contact.whatsappMessage),
-      external: true,
-    },
-    {
-      id: 'phone',
-      icon: 'phone',
-      label: contact.callLabel,
-      value: site.contact.phone,
-      href: buildPhoneLink(site.contact.phoneHref),
-    },
-    {
-      id: 'mail',
-      icon: 'mail',
-      label: contact.emailLabel,
-      value: site.contact.email,
-      href: buildMailtoLink(site.contact.email),
-    },
-  ]
 
   return (
     <Section id="ubicacion">
@@ -78,18 +46,6 @@ export default function ContactLocation() {
 
           <div className={styles.map}>
             <LocationMap address={fullAddress} />
-
-            <div className={styles.mapOverlay}>
-              <span className={styles.pin} aria-hidden="true">
-                <Icon name="pin" size={20} />
-              </span>
-              <div>
-                <p className={styles.mapCaption}>{contact.mapCaption}</p>
-                <p className={styles.mapAddress}>
-                  {address.area} · {address.city}
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </Container>

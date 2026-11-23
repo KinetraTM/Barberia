@@ -1,6 +1,6 @@
 .root {
   padding-top: clamp(3.5rem, 7vw, 5.5rem);
-  border-top: 1px solid var(--color-line);
+  border-top: 1px solid var(--color-line-strong);
   background-color: var(--color-bg-soft);
 }
 
@@ -44,7 +44,7 @@
 }
 
 .signoffSub {
-  color: var(--color-brand);
+  color: var(--color-accent);
 }
 
 .description {

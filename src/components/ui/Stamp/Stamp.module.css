@@ -14,7 +14,3 @@
 .accent {
   color: var(--color-accent);
 }
-
-.board {
-  color: var(--color-board-text);
-}

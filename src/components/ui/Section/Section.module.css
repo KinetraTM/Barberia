@@ -13,11 +13,7 @@
 
 .tinted {
   background-color: var(--color-bg-soft);
-}
-
-.board {
-  background-color: var(--color-board);
-  color: var(--color-board-text);
+  border-top: 1px solid var(--color-line-strong);
 }
 
 .hairline {
