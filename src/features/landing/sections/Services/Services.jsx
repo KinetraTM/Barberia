@@ -1,21 +1,18 @@
-import { services } from '@/content/services'
-import { serviceBookingHref } from '@/content/booking'
-import { formatDuration, formatPrice } from '@/utils/format'
-import Container from '@/components/ui/Container/Container'
-import Section from '@/components/ui/Section/Section'
-import SectionHeading from '@/components/ui/SectionHeading/SectionHeading'
-import Stamp from '@/components/ui/Stamp/Stamp'
-import styles from './Services.module.css'
+import { services } from "@/content/services";
+import { serviceBookingHref } from "@/content/booking";
+import { formatDuration, formatPrice } from "@/utils/format";
+import Container from "@/components/ui/Container/Container";
+import Section from "@/components/ui/Section/Section";
+import SectionHeading from "@/components/ui/SectionHeading/SectionHeading";
+import Stamp from "@/components/ui/Stamp/Stamp";
+import styles from "./Services.module.css";
 
 export default function Services() {
   return (
     <Section id="servicios" tone="board">
       <Container>
         <div className={styles.head}>
-          <SectionHeading
-            title={services.title}
-            subtitle={services.subtitle}
-          />
+          <SectionHeading title={services.title} subtitle={services.subtitle} />
 
           <p className={styles.note}>{services.note}</p>
         </div>
@@ -37,7 +34,7 @@ export default function Services() {
                 <span>{formatDuration(service.duration)}</span>
                 {service.includes?.length ? (
                   <span>
-                    Incluye {service.includes.join(', ').toLowerCase()}
+                    Incluye {service.includes.join(", ").toLowerCase()}
                   </span>
                 ) : null}
                 {service.featured ? <Stamp tone="board">Favorito</Stamp> : null}
@@ -56,5 +53,5 @@ export default function Services() {
         </ul>
       </Container>
     </Section>
-  )
+  );
 }

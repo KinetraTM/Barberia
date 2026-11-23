@@ -1,11 +1,11 @@
-import { location } from '@/content/location'
-import Container from '../../ui/Container/Container'
-import Icon from '../../ui/Icon/Icon'
-import styles from './SiteFooter.module.css'
+import { location } from "@/content/location";
+import Container from "../../ui/Container/Container";
+import Icon from "../../ui/Icon/Icon";
+import styles from "./SiteFooter.module.css";
 
 export default function SiteFooter({ site, links, services }) {
-  const year = new Date().getFullYear()
-  const { contact } = site
+  const year = new Date().getFullYear();
+  const { contact } = site;
 
   return (
     <footer className={styles.root}>
@@ -124,5 +124,5 @@ export default function SiteFooter({ site, links, services }) {
         </div>
       </Container>
     </footer>
-  )
+  );
 }

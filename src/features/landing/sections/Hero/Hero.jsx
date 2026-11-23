@@ -75,5 +75,5 @@ export default function Hero() {
         </div>
       </Container>
     </section>
-  )
+  );
 }

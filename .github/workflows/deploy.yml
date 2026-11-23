@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Configurar pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependencias
+        run: pnpm install
+
+      - name: Compilar proyecto con variables de entorno
+        run: pnpm run build
+        env:
+          VITE_WHATSAPP_PHONE: ${{ vars.VITE_WHATSAPP_PHONE }}
+          VITE_BUSINESS_ADDRESS: ${{ vars.VITE_BUSINESS_ADDRESS }}
+
+      - name: Subir artefacto a GitHub Pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./dist
+
+      - name: Desplegar en GitHub Pages
+        uses: actions/deploy-pages@v4

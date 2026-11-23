@@ -5,7 +5,15 @@ import Section from '@/components/ui/Section/Section'
 import SectionHeading from '@/components/ui/SectionHeading/SectionHeading'
 import styles from './FeaturedCuts.module.css'
 
+<<<<<<< HEAD
 function WorkSlide({ work }) {
+=======
+function CutCard({ cut, index }) {
+  const bookingHref = buildWhatsAppLink(
+    `¡Hola! Quiero reservar un turno para "${cut.name}".`,
+  )
+
+>>>>>>> main
   return (
     <figure className={styles.slide}>
       <div

@@ -30,3 +30,7 @@ dist-ssr
 .opencode/
 agent/
 skills-lock.json
+
+#.env
+.env
+.env*.local
