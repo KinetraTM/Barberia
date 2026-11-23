@@ -3,14 +3,21 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Un despliegue de Pages a la vez; no cancelar el que está en curso.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  build-and-deploy:
+  build:
+    name: Compilar
     runs-on: ubuntu-latest
     steps:
       - name: Descargar código
@@ -25,9 +32,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: pnpm
 
       - name: Instalar dependencias
-        run: pnpm install
+        run: pnpm install --prefer-offline
 
       - name: Compilar proyecto con variables de entorno
         run: pnpm run build
@@ -35,10 +43,19 @@ jobs:
           VITE_WHATSAPP_PHONE: ${{ vars.VITE_WHATSAPP_PHONE }}
           VITE_BUSINESS_ADDRESS: ${{ vars.VITE_BUSINESS_ADDRESS }}
 
-      - name: Subir artefacto a GitHub Pages
-        uses: actions/upload-pages-artifact@v4
+      - name: Subir artefacto de Pages
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist
 
+  deploy:
+    name: Desplegar
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Desplegar en GitHub Pages
-        uses: actions/deploy-pages@v4
+        id: deployment
+        uses: actions/deploy-pages@v5
