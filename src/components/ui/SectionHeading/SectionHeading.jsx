@@ -2,7 +2,6 @@ import { cn } from '@/utils/cn'
 import styles from './SectionHeading.module.css'
 
 export default function SectionHeading({
-  eyebrow,
   title,
   subtitle,
   align = 'start',
@@ -14,7 +13,6 @@ export default function SectionHeading({
 
   return (
     <div className={cn(styles.root, styles[align], className)}>
-      {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
       <Heading className={styles.title} id={id}>
         {title}
       </Heading>

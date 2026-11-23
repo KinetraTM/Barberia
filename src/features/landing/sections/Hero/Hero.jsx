@@ -1,32 +1,50 @@
-import { site } from "@/content/site.config";
-import { hero } from "@/content/hero";
-import { buildWhatsAppLink } from "@/utils/links";
-import { cn } from "@/utils/cn";
-import Button from "@/components/ui/Button/Button";
-import Container from "@/components/ui/Container/Container";
-import styles from "./Hero.module.css";
+import { useState } from 'react'
+import { site } from '@/content/site.config'
+import { hero } from '@/content/hero'
+import { bookingHref } from '@/content/booking'
+import Button from '@/components/ui/Button/Button'
+import Container from '@/components/ui/Container/Container'
+import styles from './Hero.module.css'
+
+function BarberPortrait({ barber }) {
+  const [failed, setFailed] = useState(false)
+  const initials = `${barber.name.charAt(0)}${barber.surname.charAt(0)}`
+
+  return (
+    <div className={styles.profile}>
+      <div className={styles.portrait}>
+        {failed ? (
+          <span className={styles.monogram} aria-hidden="true">
+            {initials}
+          </span>
+        ) : (
+          <img
+            src={barber.photo}
+            alt={`${barber.name} ${barber.surname}, ${barber.role}`}
+            onError={() => setFailed(true)}
+          />
+        )}
+      </div>
+
+      <div className={styles.profileCaption}>
+        <p className={styles.barberName}>
+          {barber.name} {barber.surname}
+        </p>
+        <p className={styles.barberRole}>{barber.role}</p>
+      </div>
+    </div>
+  )
+}
 
 export default function Hero() {
-  // Nueva firma: buildWhatsAppLink(message). Sin argumentos usa DEFAULT_MESSAGE
-  // y el número sale de VITE_WHATSAPP_PHONE.
-  const whatsappHref = buildWhatsAppLink();
-
   return (
     <section id="inicio" className={styles.root} aria-labelledby="hero-title">
       <Container>
         <div className={styles.grid}>
           <div className={styles.content}>
-            <p className="eyebrow">{hero.eyebrow}</p>
-
             <h1 id="hero-title" className={styles.title}>
-              {hero.titleLines.map((line, index) => (
-                <span
-                  key={line}
-                  className={cn(
-                    styles.line,
-                    index === hero.accentLine && styles.accentLine,
-                  )}
-                >
+              {hero.titleLines.map((line) => (
+                <span key={line} className={styles.line}>
                   {line}
                 </span>
               ))}
@@ -36,11 +54,10 @@ export default function Hero() {
 
             <div className={styles.actions}>
               <Button
-                href={whatsappHref}
+                href={bookingHref}
                 target="_blank"
                 rel="noreferrer noopener"
                 size="lg"
-                iconRight="arrowRight"
               >
                 {hero.primaryCta.label}
               </Button>
@@ -52,46 +69,9 @@ export default function Hero() {
                 {hero.secondaryCta.label}
               </Button>
             </div>
-
-            <ul className={styles.stats}>
-              {hero.stats.map((stat) => (
-                <li key={stat.label} className={styles.stat}>
-                  <span className={styles.statValue}>{stat.value}</span>
-                  <span className={styles.statLabel}>{stat.label}</span>
-                </li>
-              ))}
-            </ul>
           </div>
 
-          <div className={styles.media}>
-            <div className={styles.frame}>
-              {hero.image.src ? (
-                <img
-                  className={styles.photo}
-                  src={hero.image.src}
-                  alt={hero.image.alt}
-                  loading="eager"
-                  decoding="async"
-                />
-              ) : (
-                <>
-                  <span className={styles.stripes} aria-hidden="true" />
-                  <span className={styles.monogram} aria-hidden="true">
-                    {site.monogram}
-                  </span>
-                </>
-              )}
-
-              <div className={styles.availability}>
-                <span className={styles.dot} aria-hidden="true" />
-                <span>{hero.availability}</span>
-              </div>
-            </div>
-
-            <span className={styles.est} aria-hidden="true">
-              Est. {site.established}
-            </span>
-          </div>
+          <BarberPortrait barber={site.barber} />
         </div>
       </Container>
     </section>

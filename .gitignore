@@ -23,8 +23,14 @@ dist-ssr
 *.sln
 *.sw?
 
+# Skills y configuración de agentes (no versionar)
+*agent-skills*
+.agents/skills/
+.claude/
+.opencode/
+agent/
+skills-lock.json
 
 #.env
-
 .env
 .env*.local

@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
 import { useScrollLock } from '@/hooks/useScrollLock'
-import Button from '../../ui/Button/Button'
 import Icon from '../../ui/Icon/Icon'
 import Logo from '../../ui/Logo/Logo'
 import styles from './MobileMenu.module.css'
@@ -10,7 +9,7 @@ import styles from './MobileMenu.module.css'
  * Responsabilidades: foco atrapado, cierre con Escape, bloqueo de scroll
  * y cierre al navegar. La lógica de apertura vive en SiteHeader.
  */
-export default function MobileMenu({ open, onClose, links, cta, brand }) {
+export default function MobileMenu({ open, onClose, links, brand }) {
   const panelRef = useRef(null)
   useScrollLock(open)
 
@@ -75,7 +74,6 @@ export default function MobileMenu({ open, onClose, links, cta, brand }) {
           <Logo
             name={brand.name}
             sub={brand.sub}
-            monogram={brand.monogram}
             onClick={onClose}
           />
           <button
@@ -90,12 +88,9 @@ export default function MobileMenu({ open, onClose, links, cta, brand }) {
 
         <nav aria-label="Navegación móvil">
           <ul className={styles.list}>
-            {links.map((link, index) => (
+            {links.map((link) => (
               <li key={link.id}>
                 <a href={link.href} className={styles.link} onClick={onClose}>
-                  <span className={styles.index} aria-hidden="true">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
                   {link.label}
                 </a>
               </li>
@@ -104,11 +99,8 @@ export default function MobileMenu({ open, onClose, links, cta, brand }) {
         </nav>
 
         <div className={styles.footer}>
-          <Button href={cta.href} fullWidth onClick={onClose}>
-            {cta.label}
-          </Button>
           <p className={styles.note}>
-            {brand.name} · {brand.tagline}
+            {brand.name}. {brand.tagline}.
           </p>
         </div>
       </div>

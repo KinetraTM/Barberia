@@ -1,4 +1,5 @@
 import { site } from '@/content/site.config'
+import { location } from '@/content/location'
 import { contact } from '@/content/contact'
 import {
   buildMailtoLink,
@@ -52,66 +53,27 @@ export default function ContactLocation() {
   ]
 
   return (
-    <Section id="contacto" tone="tinted" hairline>
+    <Section id="ubicacion">
       <Container>
-        <SectionHeading
-          eyebrow={contact.eyebrow}
-          title={contact.title}
-          subtitle={contact.subtitle}
-        />
+        <SectionHeading title={location.title} subtitle={location.subtitle} />
 
         <div className={styles.layout}>
-          <div className={styles.info}>
-            <ul className={styles.channels}>
-              {channels.map((channel) => (
-                <li key={channel.id}>
-                  <a
-                    className={styles.channel}
-                    href={channel.href}
-                    {...(channel.external
-                      ? { target: '_blank', rel: 'noreferrer noopener' }
-                      : {})}
-                  >
-                    <span className={styles.channelIcon} aria-hidden="true">
-                      <Icon name={channel.icon} size={19} />
-                    </span>
-                    <span className={styles.channelBody}>
-                      <span className={styles.channelLabel}>
-                        {channel.label}
-                      </span>
-                      <span className={styles.channelValue}>
-                        {channel.value}
-                      </span>
-                    </span>
-                    <Icon
-                      name="arrowRight"
-                      size={16}
-                      className={styles.channelArrow}
-                    />
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            <div className={styles.hours}>
-              <h3 className={styles.hoursTitle}>{contact.hoursTitle}</h3>
-              <ul className={styles.hoursList}>
-                {site.hours.map((entry) => (
-                  <li key={entry.day} className={styles.hoursRow}>
-                    <span>{entry.day}</span>
-                    <span
-                      className={
-                        entry.closed ? styles.hoursClosed : styles.hoursValue
-                      }
-                    >
-                      {formatSchedule(entry)}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
+          <div className={styles.address}>
+            <p className={styles.street}>{address.street}</p>
+            <p className={styles.city}>
+              {address.area}, {address.city} · {address.postalCode}
+            </p>
             <p className={styles.notes}>{site.contact.notes}</p>
+
+            <a
+              className={styles.directions}
+              href={site.contact.mapsUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Icon name="pin" size={18} />
+              {location.mapCta}
+            </a>
           </div>
 
           <div className={styles.map}>

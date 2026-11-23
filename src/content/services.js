@@ -1,10 +1,8 @@
 export const services = {
-  eyebrow: 'Servicios y precios',
-  title: 'La carta de la casa',
+  title: 'Servicios y precios',
   subtitle:
-    'Precios claros, sin sorpresas. Cada servicio incluye asesoramiento y terminación con productos de primera línea.',
+    'Cada servicio incluye asesoramiento y terminación con productos de primera línea.',
   note: 'Precios orientativos en pesos argentinos. Pueden variar según largo y complejidad.',
-  cta: { label: 'Consultar disponibilidad' },
   items: [
     {
       id: 'corte',

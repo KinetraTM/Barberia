@@ -1,11 +1,7 @@
 export const faqs = {
-  eyebrow: 'Antes de venir',
   title: 'Preguntas frecuentes',
   subtitle:
     'Lo que más nos consultan por WhatsApp. Si te queda alguna duda, escribinos y te respondemos en el día.',
-  contactPrompt: {
-    label: '¿No encontraste tu respuesta?',
-  },
   items: [
     {
       id: 'turnos',
