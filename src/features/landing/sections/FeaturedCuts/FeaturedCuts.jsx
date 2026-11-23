@@ -1,24 +1,16 @@
-import { featuredCuts } from '@/content/haircuts'
-import Carousel from '@/components/ui/Carousel/Carousel'
-import Container from '@/components/ui/Container/Container'
-import Section from '@/components/ui/Section/Section'
-import SectionHeading from '@/components/ui/SectionHeading/SectionHeading'
-import styles from './FeaturedCuts.module.css'
+import { featuredCuts } from "@/content/haircuts";
+import Carousel from "@/components/ui/Carousel/Carousel";
+import Container from "@/components/ui/Container/Container";
+import Section from "@/components/ui/Section/Section";
+import SectionHeading from "@/components/ui/SectionHeading/SectionHeading";
+import styles from "./FeaturedCuts.module.css";
 
-<<<<<<< HEAD
 function WorkSlide({ work }) {
-=======
-function CutCard({ cut, index }) {
-  const bookingHref = buildWhatsAppLink(
-    `¡Hola! Quiero reservar un turno para "${cut.name}".`,
-  )
-
->>>>>>> main
   return (
     <figure className={styles.slide}>
       <div
         className={styles.photo}
-        style={{ '--photo': `url("${work.image}")`, '--tone': work.tone }}
+        style={{ "--photo": `url("${work.image}")`, "--tone": work.tone }}
         role="img"
         aria-label={work.alt}
       />
@@ -27,7 +19,7 @@ function CutCard({ cut, index }) {
         <span className={styles.detail}>{work.detail}</span>
       </figcaption>
     </figure>
-  )
+  );
 }
 
 export default function FeaturedCuts() {
@@ -48,5 +40,5 @@ export default function FeaturedCuts() {
         />
       </Container>
     </Section>
-  )
+  );
 }
